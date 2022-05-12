@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SchoolApp.API.Data;
 using SchoolAPP.API.Data.Models;
+using SchoolkApp.API.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -103,6 +104,8 @@ namespace SchoolApp.API
             {
                 endpoints.MapControllers();
             });
+            //seed the database
+            AppDbInitializer.SeeedRolesToDb(app).Wait();
         }
     }
 }
